@@ -17,6 +17,7 @@
         <img v-if="id && item.image" :src="`/storage/images/${item.image}`" width="200"/>
         <drop-zone :options="dropzoneOptions" id="dz" ref="dropzone"></drop-zone>
         <button type="submit">Save</button>
+        <a @click="removeHouse(index)" class="btn btn-danger remove">delete</a>
         <ul>
             <li v-for="(error, index) in errors" :key="index">{{error}}</li>
         </ul>
@@ -96,7 +97,23 @@
                     let messages = Object.values(error.response.data.errors);
                     this.errors = [].concat.apply([], messages);
                 });
-            }
+            },
+            removeHouse(index) {
+                if (confirm('are you sure!?')) {
+
+                let id = this.id;
+
+                console.log(id);
+
+                if (id > 0) {
+                    axios.delete('/api/house-items/' + id).
+                    then(res => {
+                        this.$router.push('/houses/');
+                    });
+                }
+
+                }
+            },
         }
     }
 </script>

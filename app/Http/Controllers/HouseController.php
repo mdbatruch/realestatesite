@@ -97,7 +97,11 @@ class HouseController extends Controller
      */
     public function destroy(House $house)
     {
-        //
+        // $this->authorize('delete', $house);
+
+        $house->delete();
+
+        return ['success' => true];
     }
 
     public function getHouse($id) {

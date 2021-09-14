@@ -21,6 +21,7 @@ Route::post('/neighbourhoods/upsert', 'App\Http\Controllers\NeighbourhoodControl
 Route::delete('/neighbourhoods/{neighbourhood}', 'App\Http\Controllers\NeighbourhoodController@destroy');
 
 Route::post('/house-items/add', 'App\Http\Controllers\HouseController@store');
+Route::delete('/house-items/{house}', 'App\Http\Controllers\HouseController@destroy');
 
 Route::post('/add-image', function (Request $request) {
     $file = $request->file('file');

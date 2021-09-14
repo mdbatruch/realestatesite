@@ -1,4 +1,4 @@
-# A Full Stack CMS build in Laravel/Vue with an API, Authentication and CRUD components
+# A Full Stack CMS built in Laravel/Vue with an API, Authentication and CRUD components
 
 These are the files for a custom built Laravel 8 Application with Vue 2 integration.
 
