@@ -33,6 +33,7 @@ class HouseTableSeeder extends Seeder
                 'image' => '50highpark.jpg',
                 'description' => 'Steps away from the subway.',
                 'price' => 2000,
+                'propertyType' => 'Detached',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -42,6 +43,7 @@ class HouseTableSeeder extends Seeder
                 'image' => '100highpark.jpg',
                 'description' => 'Around the corner of glenlake road',
                 'price' => 2200,
+                'propertyType' => 'Semi-Detached',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -51,6 +53,7 @@ class HouseTableSeeder extends Seeder
                 'image' => '66pacific.jpg',
                 'description' => 'Right by the tennis courts',
                 'price' => 1700,
+                'propertyType' => 'Condo',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -61,6 +64,7 @@ class HouseTableSeeder extends Seeder
                 'image' => '87loganavenue.jpg',
                 'description' => 'Close to the fountain',
                 'price' => 1400,
+                'propertyType' => 'Condo',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -71,6 +75,7 @@ class HouseTableSeeder extends Seeder
                 'image' => '42broadviewavenue.jpg',
                 'description' => 'By the bridge',
                 'price' => 1900,
+                'propertyType' => 'Townhouse',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -81,6 +86,7 @@ class HouseTableSeeder extends Seeder
                 'image' => '45danforthavenue.jpg',
                 'description' => 'In the core of the neighbourhood',
                 'price' => 2400,
+                'propertyType' => 'Semi-Detached',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -91,6 +97,7 @@ class HouseTableSeeder extends Seeder
                 'image' => '10bathurststreet.jpg',
                 'description' => 'Nice condo in the core',
                 'price' => 2400,
+                'propertyType' => 'Detached',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -101,6 +108,7 @@ class HouseTableSeeder extends Seeder
                 'image' => '34lakeshorewest.jpg',
                 'description' => 'By the harbourfront',
                 'price' => 2800,
+                'propertyType' => 'Townhouse',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -111,6 +119,7 @@ class HouseTableSeeder extends Seeder
                 'image' => '10lowerspadina.jpg',
                 'description' => 'Same building as Starbucks',
                 'price' => 2300,
+                'propertyType' => 'Condo',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]

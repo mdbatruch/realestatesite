@@ -26,4 +26,5 @@ Route::get('/neighbourhoods', 'App\Http\Controllers\NeighbourhoodController@inde
 
 Route::get('/neighbourhood-editor/{any?}', 'App\Http\Controllers\AdminController@neighbourhood')
 ->middleware('can:edit-neighbourhood')
-->where('any', '.*');
+->where('any', '.*')
+->name('neighbourhood-editor');

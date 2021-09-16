@@ -14,6 +14,12 @@
                 <option v-for="cat in initialNeighbourhoods" :value="cat.id" :key="cat.id">{{cat.name}}</option>
             </select>
         </div>
+        <div>
+            <select v-model="item.propertyType" required>
+                <option value="">Select a Property Type</option>
+                <option v-for="type in propertyType" :value="type" :key="type">{{type}}</option>
+            </select>
+        </div>
         <drop-zone :options="dropzoneOptions" id="dz" ref="dropzone"></drop-zone>
         <button type="submit">Save</button>
         <ul>
@@ -35,6 +41,7 @@
         props: ['initial-neighbourhoods'],
         data() {
             return {
+                propertyType: ['Detached', 'Semi-Detached', 'Condo', 'Townhouse'],
                 dropzoneOptions: {
                     url: '/api/add-image',
                     thumbnailWidth: 200,
@@ -49,7 +56,8 @@
                     name: '',
                     price: 0.00,
                     description: '',
-                    neighbourhood: ''
+                    neighbourhood: '',
+                    propertyType: ''
                 },
                 errors: []
             };

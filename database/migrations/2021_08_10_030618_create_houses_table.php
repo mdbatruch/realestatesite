@@ -19,6 +19,7 @@ class CreateHousesTable extends Migration
             $table->string('description', 512);
             $table->decimal('price');
             $table->string('image');
+            $table->string('propertyType', 128);
             $table->bigInteger('neighbourhood')->nullable()->unsigned();
             $table->foreign('neighbourhood')
             ->references('id')
@@ -26,6 +27,10 @@ class CreateHousesTable extends Migration
             ->onDelete('cascade');
             $table->timestamps();
         });
+
+        // Schema::table('houses', function(Blueprint $table) {
+        //     $table->string('building_type', 128);
+        // });
     }
 
     /**

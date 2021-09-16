@@ -30,6 +30,7 @@ class HousePost extends FormRequest
                 'description' => 'required|max:512',
                 'price' => 'required|numeric|min:0',
                 'neighbourhood' => 'required|numeric',
+                'propertyType' => 'required',
                 'image' => 'required'
             // ])
         ];

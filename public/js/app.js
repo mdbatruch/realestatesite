@@ -1875,6 +1875,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1894,6 +1900,7 @@ function newItem() {
   props: ['initial-neighbourhoods', 'id'],
   data: function data() {
     return {
+      propertyType: ['Detached', 'Semi-Detached', 'Condo', 'Townhouse'],
       dropzoneOptions: {
         url: '/api/add-image',
         thumbnailWidth: 200,
@@ -2143,6 +2150,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2152,6 +2165,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['initial-neighbourhoods'],
   data: function data() {
     return {
+      propertyType: ['Detached', 'Semi-Detached', 'Condo', 'Townhouse'],
       dropzoneOptions: {
         url: '/api/add-image',
         thumbnailWidth: 200,
@@ -2166,7 +2180,8 @@ __webpack_require__.r(__webpack_exports__);
         name: '',
         price: 0.00,
         description: '',
-        neighbourhood: ''
+        neighbourhood: '',
+        propertyType: ''
       },
       errors: []
     };
@@ -42674,6 +42689,52 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
+        _c("div", [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.item.propertyType,
+                  expression: "item.propertyType"
+                }
+              ],
+              attrs: { required: "" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.item,
+                    "propertyType",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [
+                _vm._v("Select a Property Type")
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.propertyType, function(type) {
+                return _c("option", { key: type, domProps: { value: type } }, [
+                  _vm._v(_vm._s(type))
+                ])
+              })
+            ],
+            2
+          )
+        ]),
+        _vm._v(" "),
         _vm.id && _vm.item.image
           ? _c("img", {
               attrs: { src: "/storage/images/" + _vm.item.image, width: "200" }
@@ -43025,6 +43086,52 @@ var render = function() {
                   { key: cat.id, domProps: { value: cat.id } },
                   [_vm._v(_vm._s(cat.name))]
                 )
+              })
+            ],
+            2
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.item.propertyType,
+                  expression: "item.propertyType"
+                }
+              ],
+              attrs: { required: "" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.item,
+                    "propertyType",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [
+                _vm._v("Select a Property Type")
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.propertyType, function(type) {
+                return _c("option", { key: type, domProps: { value: type } }, [
+                  _vm._v(_vm._s(type))
+                ])
               })
             ],
             2
