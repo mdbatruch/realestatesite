@@ -6,7 +6,7 @@ use DB;
 
 use Illuminate\Database\Seeder;
 
-class neighbourhoodsTableSeeder extends Seeder
+class NeighbourhoodsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

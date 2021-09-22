@@ -21,6 +21,9 @@ GETTING STARTED (for Mac/Linux machines)
 
 * Make sure to have MySQL 5.7+, PHP 7.3+, Node 10+ and Composer 1+ installed on your machine. CD into the root directory and run **composer install** to install PHP dependencies. Run as well **npm install** for Node dependencies (for Webpack preprocessing, BrowserSync watching and Cache busting among other things).
 
+Run Migration and Seed files with **php artisan migrate** and **php artisan db:seed**.
+Alternatively, you can run **php artisan migrate:fresh --seed** to run both migrations and seeds.
+
 * To install a VM for development (not necessary but reccomended for development purposes), for starters you'll need to install Virtualbox and Vagrant (Mac/Linux OS). Instructions are listed on their respective sites. Make sure to create if you already have not SSH keys to connect to the virtual machine. Once these are complete, run **vagrant box add laravel/homestead** to add the Vagrant box to Homestead.
 
 To configure Homestead, run **git clone https://github.com/laravel/homestead.git ~/Homestead** then cd into the Homestead folder, and run **git checkout release** to make sure you have the latest version on your machine. You'll nedd to configure a yaml file and initialize Homestead, which on Mac/Linux you run **init.sh**. Create a directory in the Homestead folder with your project folder name and open up the yaml file and adjust yaml file settings to map your project edits from the homestead path to your local path in the sites settings. Update database name accordingly.

@@ -5,7 +5,7 @@
             <option v-for="cat in initialNeighbourhoods" :value="cat.id" :key="cat.id">{{cat.name}}</option>
         </select>
         <ul>
-            <draggable v-model="myArray">
+            <draggable v-model="houses">
                 <transition-group>
                     <li v-for="house in houses" :key="house.id">
                         <router-link :to="{name: `edit-house`, params: {id: house.id}}">

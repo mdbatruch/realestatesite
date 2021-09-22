@@ -42849,11 +42849,11 @@ var render = function() {
           "draggable",
           {
             model: {
-              value: _vm.myArray,
+              value: _vm.houses,
               callback: function($$v) {
-                _vm.myArray = $$v
+                _vm.houses = $$v
               },
-              expression: "myArray"
+              expression: "houses"
             }
           },
           [
