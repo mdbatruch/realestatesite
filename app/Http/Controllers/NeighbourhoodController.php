@@ -5,6 +5,7 @@ use App\Models\House;
 
 use App\Models\Neighbourhood;
 use Illuminate\Http\Request;
+use App\Http\Requests\NeighbourhoodPost;
 
 class NeighbourhoodController extends Controller
 {
@@ -24,16 +25,31 @@ class NeighbourhoodController extends Controller
         ]);
     }
 
-    public function upsert(Request $request) {
+    // public function upsert(Request $request) {
+    public function upsert(NeighbourhoodPost $request) {
 
         $this->authorize('manage', 'App\Neighbourhood');
         $neighbourhoods = $request->post('neighbourhoods');
 
-        foreach ($neighbourhoods as $hood) {
-            if ($hood['id']) {
-                Neighbourhood::where('id', $hood['id'])->update($hood);
-            } else {
-                Neighbourhood::create($hood);
+        // echo '<pre>';
+        // print_r($neighbourhoods);
+
+        // $request->validate([
+        //     'name' => 'required|max:128',
+        //     'subtitle' => 'required|max:512',
+        //     'description' => 'required|numeric|min:0',
+        //     'image' => 'required'
+        // ]);
+
+        if ($request->validated()) {
+            foreach ($neighbourhoods as $hood) {
+                if ($hood['id']) {
+                    Neighbourhood::where('id', $hood['id'])->update($hood);
+                } else {
+                    Neighbourhood::create($hood);
+                    // echo 'test';
+                    // Neighbourhood::create($request->validated());
+                }
             }
         }
 

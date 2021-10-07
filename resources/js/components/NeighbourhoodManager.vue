@@ -1,13 +1,13 @@
 <template>
-    <form @submit.prevent="saveNeighbourhoods">
+    <form @submit.prevent="saveNeighbourhoods" novalidate>
         <a @click="addNeighbourhood" class="add">+ Add Neighbourhood</a>
         <div v-for="(neighbourhood, index) in neighbourhoods" :key="neighbourhood.id">
-            <!-- <input type="text" v-model="neighbourhood.name" :ref="neighbourhood.name"> -->
-            <input type="text" :value="neighbourhood.name" @input="update($event, 'name', index)" :ref="neighbourhood.name">
-            <!-- <input type="text" v-model="neighbourhood.subtitle" :ref="neighbourhood.subtitle"> -->
+            <input type="text" v-model="neighbourhood.name" :ref="neighbourhood.name">
+            <div v-if="name_errors">{{ name_errors }}</div>
             <input type="text" :value="neighbourhood.subtitle" @input="update($event, 'subtitle', index)" :ref="neighbourhood.subtitle">
-            <!-- <textarea  v-model="neighbourhood.description" :ref="neighbourhood.description" cols="30" rows="10"></textarea> -->
+            <div v-if="subtitle_errors">{{ subtitle_errors }}</div>
             <textarea  :value="neighbourhood.description" @input="update($event, 'description', index)" :ref="neighbourhood.description" cols="30" rows="10"></textarea>
+            <div v-if="description_errors">{{ description_errors }}</div>
             <input type="number" :value="neighbourhood.display_order" @input="update($event, 'display_order', index)">
             <a @click="removeNeighbourhood(index)" class="remove">delete</a>
             <div>
@@ -15,29 +15,49 @@
                 <label v-else>Image: </label>
                 <!-- <input type="text" v-model.lazy="neighbourhood.image"> -->
                 <input type="text" :value="neighbourhood.image" @change="update($event, 'image', index)">
+                <div v-if="image_errors">{{ image_errors }}</div>
             </div>
             <hr>
         </div>
         <button type="submit">Save</button>
-        <div>{{ feedback }}</div>
+        <div v-if="feedback">{{ feedback }}</div>
     </form>
 </template>
 
 <script>
     export default {
         // props: ['initial-neighbourhoods'],
-        // data() {
-        //     return {
-                // neighbourhoods: _.cloneDeep(this.initialNeighbourhoods),
-        //         feedback: ''
-        //     };
-        // },
+        state: {
+            neighbourhoods: [],
+            items: [],
+            feedback: '',
+            errors: [],
+            name_errors: '',
+            subtitle_errors: '',
+            description_errors: '',
+            image_errors: ''
+        },
         computed: {
             neighbourhoods() {
                 return this.$store.state.neighbourhoods;
             },
             feedback() {
                 return this.$store.state.feedback;
+            },
+            errors() {
+                return this.$store.state.errors;
+            },
+            name_errors() {
+                return this.$store.state.name_errors;
+            },
+            subtitle_errors() {
+                return this.$store.state.subtitle_errors;
+            },
+            description_errors() {
+                return this.$store.state.description_errors;
+            },
+            image_errors() {
+                return this.$store.state.image_errors;
             }
         },
         methods: {
@@ -72,6 +92,7 @@
         saveNeighbourhoods() {
 
             this.$store.dispatch('saveNeighbourhoods');
+            
             // axios.post('api/neighbourhoods/upsert', {
             //     neighbourhoods: this.neighbourhoods
             // })

@@ -38,7 +38,9 @@ class NeighbourhoodPolicy
      */
     public function manage(User $user)
     {
-        return $user->is_admin;
+        if ($user->is_admin) {
+            return true;
+        }
     }
 
     /**
