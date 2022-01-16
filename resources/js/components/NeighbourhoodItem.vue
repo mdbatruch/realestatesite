@@ -1,37 +1,42 @@
 <template>
     <div>
-        <form class="item-form" @submit.prevent="save" novalidate>
-        <div>
-            <input type="text" placeholder="Item name" v-model="item.name" required>
-            <div v-if="errors.name">{{ errors.name }}</div>
-            $<input type="number" min="0" step=".01" v-model="item.price" required>
-            <div v-if="errors.price">{{ errors.price }}</div>
-        </div>
-        <div>
-            <textarea v-model="item.description" placeholder="Item description" required></textarea>
-            <div v-if="errors.description">{{ errors.description }}</div>
-        </div>
-        <div>
-            <select v-model="item.neighbourhood" required>
-                <option value="">Select a Neighbourhood</option>
-                <option v-for="cat in initialNeighbourhoods" :value="cat.id" :key="cat.id">{{cat.name}}</option>
-            </select>
-            <div v-if="errors.neighbourhood">{{ errors.neighbourhood }}</div>
-        </div>
-        <div>
-            <select v-model="item.propertyType" required>
-                <option value="">Select a Property Type</option>
-                <option v-for="type in propertyType" :value="type" :key="type">{{type}}</option>
-            </select>
-            <div v-if="errors.propertyType">{{ errors.propertyType }}</div>
-        </div>
-        <drop-zone :options="dropzoneOptions" id="dz" ref="dropzone"></drop-zone>
-        <div v-if="errors.image">{{ errors.image }}</div>
-        <button type="submit">Save</button>
-        <!-- <ul>
-            <li v-for="(error, index) in errors" :key="index">{{error}}</li>
-        </ul> -->
-    </form>
+        <form class="item-form mt-4" @submit.prevent="save" novalidate>
+            <div class="form-field mb-2">
+                <div class="inner-form-field mb-2">
+                    <input type="text" placeholder="Item name" v-model="item.name" required>
+                    <div v-if="errors.name" class="text-danger">{{ errors.name }}</div>
+                </div>
+                <div class="inner-form-field">
+                    <span class="text-white mr-1">$</span><input type="number" min="0" step=".01" v-model="item.price" required>
+                    <div v-if="errors.price" class="text-danger">{{ errors.price }}</div>
+                </div>
+            </div>
+            <div class="form-field mb-2">
+                <textarea v-model="item.description" placeholder="Item description" required></textarea>
+                <div v-if="errors.description" class="text-danger">{{ errors.description }}</div>
+            </div>
+            <div class="form-field mb-2">
+                <select v-model="item.neighbourhood" required>
+                    <option value="">Select a Neighbourhood</option>
+                    <option v-for="cat in initialNeighbourhoods" :value="cat.id" :key="cat.id">{{cat.name}}</option>
+                </select>
+                <div v-if="errors.neighbourhood" class="text-danger">{{ errors.neighbourhood }}</div>
+            </div>
+            <div class="form-field mb-2">
+                <select v-model="item.propertyType" required>
+                    <option value="">Select a Property Type</option>
+                    <option v-for="type in propertyType" :value="type" :key="type">{{type}}</option>
+                </select>
+                <div v-if="errors.propertyType" class="text-danger">{{ errors.propertyType }}</div>
+            </div>
+            <div class="form-field mb-2">
+                <drop-zone :options="dropzoneOptions" id="dz" ref="dropzone"></drop-zone>
+                <div v-if="errors.image" class="text-danger">{{ errors.image }}</div>
+            </div>
+            <div class="form-field m">
+                <button type="submit" class="btn btn-success text-dark">Save</button>
+            </div>
+        </form>
     </div>
 </template>
 

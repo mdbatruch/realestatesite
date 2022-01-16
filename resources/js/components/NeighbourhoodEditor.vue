@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Neighbourhood Editor</h1>
+        <h1 class="text-white">Neighbourhood Editor</h1>
         <router-link :to="{name: 'neighbourhoods'}">Neighbourhoods</router-link>
         <router-link :to="{name: 'houses'}">Houses</router-link>
         <router-link :to="{name: 'add-item'}">Add Item</router-link>

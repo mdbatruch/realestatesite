@@ -10003,5 +10003,8 @@ h3 {
   }
 }
 body {
-  background-color: #3490dc;
+  background-color: #293744;
+}
+body ul li {
+  list-style: none;
 }

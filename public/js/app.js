@@ -1884,6 +1884,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2208,6 +2218,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2317,6 +2332,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -49069,7 +49098,7 @@ var render = function() {
     _c(
       "form",
       {
-        staticClass: "item-form",
+        staticClass: "item-form d-flex flex-column py-2 mt-4",
         attrs: { novalidate: "" },
         on: {
           submit: function($event) {
@@ -49079,7 +49108,7 @@ var render = function() {
         }
       },
       [
-        _c("div", [
+        _c("div", { staticClass: "form-field mb-2" }, [
           _c("input", {
             directives: [
               {
@@ -49102,9 +49131,14 @@ var render = function() {
           }),
           _vm._v(" "),
           _vm.errors.name
-            ? _c("div", [_vm._v(_vm._s(_vm.errors.name))])
-            : _vm._e(),
-          _vm._v("\n        $"),
+            ? _c("div", { staticClass: "text-danger" }, [
+                _vm._v(_vm._s(_vm.errors.name))
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-field mb-2" }, [
+          _vm._v("\n            $"),
           _c("input", {
             directives: [
               {
@@ -49127,11 +49161,13 @@ var render = function() {
           }),
           _vm._v(" "),
           _vm.errors.price
-            ? _c("div", [_vm._v(_vm._s(_vm.errors.price))])
+            ? _c("div", { staticClass: "text-danger" }, [
+                _vm._v(_vm._s(_vm.errors.price))
+              ])
             : _vm._e()
         ]),
         _vm._v(" "),
-        _c("div", [
+        _c("div", { staticClass: "form-field mb-2" }, [
           _c("textarea", {
             directives: [
               {
@@ -49154,11 +49190,13 @@ var render = function() {
           }),
           _vm._v(" "),
           _vm.errors.description
-            ? _c("div", [_vm._v(_vm._s(_vm.errors.description))])
+            ? _c("div", { staticClass: "text-danger" }, [
+                _vm._v(_vm._s(_vm.errors.description))
+              ])
             : _vm._e()
         ]),
         _vm._v(" "),
-        _c("div", [
+        _c("div", { staticClass: "form-field mb-2" }, [
           _c(
             "select",
             {
@@ -49206,11 +49244,13 @@ var render = function() {
           ),
           _vm._v(" "),
           _vm.errors.neighbourhood
-            ? _c("div", [_vm._v(_vm._s(_vm.errors.neighbourhood))])
+            ? _c("div", { staticClass: "text-danger" }, [
+                _vm._v(_vm._s(_vm.errors.neighbourhood))
+              ])
             : _vm._e()
         ]),
         _vm._v(" "),
-        _c("div", [
+        _c("div", { staticClass: "form-field mb-2" }, [
           _c(
             "select",
             {
@@ -49256,45 +49296,76 @@ var render = function() {
           ),
           _vm._v(" "),
           _vm.errors.propertyType
-            ? _c("div", [_vm._v(_vm._s(_vm.errors.propertyType))])
+            ? _c("div", { staticClass: "text-danger" }, [
+                _vm._v(_vm._s(_vm.errors.propertyType))
+              ])
             : _vm._e()
         ]),
         _vm._v(" "),
-        _vm.id && _vm.item.image
-          ? _c("img", {
-              attrs: { src: "/storage/images/" + _vm.item.image, width: "200" }
-            })
-          : _vm._e(),
-        _vm._v(" "),
-        _c("drop-zone", {
-          ref: "dropzone",
-          attrs: { options: _vm.dropzoneOptions, id: "dz" }
-        }),
-        _vm._v(" "),
-        _vm.errors.image
-          ? _c("div", [_vm._v(_vm._s(_vm.errors.image))])
-          : _vm._e(),
-        _vm._v(" "),
-        _c("button", { attrs: { type: "submit" } }, [_vm._v("Save")]),
-        _vm._v(" "),
         _c(
-          "a",
-          {
-            staticClass: "btn btn-danger remove",
-            on: {
-              click: function($event) {
-                return _vm.removeHouse(_vm.index)
-              }
-            }
-          },
-          [_vm._v("delete")]
-        )
-      ],
-      1
+          "div",
+          { staticClass: "form-filed mb-2" },
+          [
+            _vm.id && _vm.item.image
+              ? _c("img", {
+                  staticClass: "mb-2",
+                  attrs: {
+                    src: "/storage/images/" + _vm.item.image,
+                    width: "200"
+                  }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _c("drop-zone", {
+              ref: "dropzone",
+              attrs: { options: _vm.dropzoneOptions, id: "dz" }
+            }),
+            _vm._v(" "),
+            _vm.errors.image
+              ? _c("div", { staticClass: "text-danger" }, [
+                  _vm._v(_vm._s(_vm.errors.image))
+                ])
+              : _vm._e()
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-field d-flex" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "inner-form-field mb-2" }, [
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-danger remove",
+                on: {
+                  click: function($event) {
+                    return _vm.removeHouse(_vm.index)
+                  }
+                }
+              },
+              [_vm._v("Delete")]
+            )
+          ])
+        ])
+      ]
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "inner-form-field mb-2 mr-2" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-success", attrs: { type: "submit" } },
+        [_vm._v("Save")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -49317,7 +49388,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "menu-item-list" }, [
+  return _c("div", { staticClass: "menu-item-list mt-4" }, [
     _c(
       "select",
       {
@@ -49365,6 +49436,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "ul",
+      { staticClass: "mt-4 pl-0" },
       [
         _c(
           "draggable",
@@ -49388,6 +49460,7 @@ var render = function() {
                     _c(
                       "router-link",
                       {
+                        staticClass: "btn btn-info text-dark mb-2",
                         attrs: {
                           to: { name: "edit-house", params: { id: house.id } }
                         }
@@ -49440,7 +49513,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("h1", [_vm._v("Neighbourhood Editor")]),
+      _c("h1", { staticClass: "text-white" }, [_vm._v("Neighbourhood Editor")]),
       _vm._v(" "),
       _c("router-link", { attrs: { to: { name: "neighbourhoods" } } }, [
         _vm._v("Neighbourhoods")
@@ -49488,7 +49561,7 @@ var render = function() {
     _c(
       "form",
       {
-        staticClass: "item-form",
+        staticClass: "item-form mt-4",
         attrs: { novalidate: "" },
         on: {
           submit: function($event) {
@@ -49498,59 +49571,68 @@ var render = function() {
         }
       },
       [
-        _c("div", [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.item.name,
-                expression: "item.name"
-              }
-            ],
-            attrs: { type: "text", placeholder: "Item name", required: "" },
-            domProps: { value: _vm.item.name },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+        _c("div", { staticClass: "form-field mb-2" }, [
+          _c("div", { staticClass: "inner-form-field mb-2" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.item.name,
+                  expression: "item.name"
                 }
-                _vm.$set(_vm.item, "name", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _vm.errors.name
-            ? _c("div", [_vm._v(_vm._s(_vm.errors.name))])
-            : _vm._e(),
-          _vm._v("\n        $"),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.item.price,
-                expression: "item.price"
-              }
-            ],
-            attrs: { type: "number", min: "0", step: ".01", required: "" },
-            domProps: { value: _vm.item.price },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+              ],
+              attrs: { type: "text", placeholder: "Item name", required: "" },
+              domProps: { value: _vm.item.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.item, "name", $event.target.value)
                 }
-                _vm.$set(_vm.item, "price", $event.target.value)
               }
-            }
-          }),
+            }),
+            _vm._v(" "),
+            _vm.errors.name
+              ? _c("div", { staticClass: "text-danger" }, [
+                  _vm._v(_vm._s(_vm.errors.name))
+                ])
+              : _vm._e()
+          ]),
           _vm._v(" "),
-          _vm.errors.price
-            ? _c("div", [_vm._v(_vm._s(_vm.errors.price))])
-            : _vm._e()
+          _c("div", { staticClass: "inner-form-field" }, [
+            _c("span", { staticClass: "text-white mr-1" }, [_vm._v("$")]),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.item.price,
+                  expression: "item.price"
+                }
+              ],
+              attrs: { type: "number", min: "0", step: ".01", required: "" },
+              domProps: { value: _vm.item.price },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.item, "price", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.errors.price
+              ? _c("div", { staticClass: "text-danger" }, [
+                  _vm._v(_vm._s(_vm.errors.price))
+                ])
+              : _vm._e()
+          ])
         ]),
         _vm._v(" "),
-        _c("div", [
+        _c("div", { staticClass: "form-field mb-2" }, [
           _c("textarea", {
             directives: [
               {
@@ -49573,11 +49655,13 @@ var render = function() {
           }),
           _vm._v(" "),
           _vm.errors.description
-            ? _c("div", [_vm._v(_vm._s(_vm.errors.description))])
+            ? _c("div", { staticClass: "text-danger" }, [
+                _vm._v(_vm._s(_vm.errors.description))
+              ])
             : _vm._e()
         ]),
         _vm._v(" "),
-        _c("div", [
+        _c("div", { staticClass: "form-field mb-2" }, [
           _c(
             "select",
             {
@@ -49625,11 +49709,13 @@ var render = function() {
           ),
           _vm._v(" "),
           _vm.errors.neighbourhood
-            ? _c("div", [_vm._v(_vm._s(_vm.errors.neighbourhood))])
+            ? _c("div", { staticClass: "text-danger" }, [
+                _vm._v(_vm._s(_vm.errors.neighbourhood))
+              ])
             : _vm._e()
         ]),
         _vm._v(" "),
-        _c("div", [
+        _c("div", { staticClass: "form-field mb-2" }, [
           _c(
             "select",
             {
@@ -49675,26 +49761,49 @@ var render = function() {
           ),
           _vm._v(" "),
           _vm.errors.propertyType
-            ? _c("div", [_vm._v(_vm._s(_vm.errors.propertyType))])
+            ? _c("div", { staticClass: "text-danger" }, [
+                _vm._v(_vm._s(_vm.errors.propertyType))
+              ])
             : _vm._e()
         ]),
         _vm._v(" "),
-        _c("drop-zone", {
-          ref: "dropzone",
-          attrs: { options: _vm.dropzoneOptions, id: "dz" }
-        }),
+        _c(
+          "div",
+          { staticClass: "form-field mb-2" },
+          [
+            _c("drop-zone", {
+              ref: "dropzone",
+              attrs: { options: _vm.dropzoneOptions, id: "dz" }
+            }),
+            _vm._v(" "),
+            _vm.errors.image
+              ? _c("div", { staticClass: "text-danger" }, [
+                  _vm._v(_vm._s(_vm.errors.image))
+                ])
+              : _vm._e()
+          ],
+          1
+        ),
         _vm._v(" "),
-        _vm.errors.image
-          ? _c("div", [_vm._v(_vm._s(_vm.errors.image))])
-          : _vm._e(),
-        _vm._v(" "),
-        _c("button", { attrs: { type: "submit" } }, [_vm._v("Save")])
-      ],
-      1
+        _vm._m(0)
+      ]
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-field m" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-success text-dark", attrs: { type: "submit" } },
+        [_vm._v("Save")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -49717,140 +49826,198 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "form",
-    {
-      attrs: { novalidate: "" },
-      on: {
-        submit: function($event) {
-          $event.preventDefault()
-          return _vm.saveNeighbourhoods.apply(null, arguments)
+  return _c("div", { staticClass: "col-12" }, [
+    _c("div", { staticClass: "neighbourhood-add my-4" }, [
+      _c(
+        "a",
+        {
+          staticClass: "add btn btn-info text-dark",
+          on: { click: _vm.addNeighbourhood }
+        },
+        [_vm._v("+ Add Neighbourhood")]
+      )
+    ]),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        staticClass: "row py-2",
+        attrs: { novalidate: "" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.saveNeighbourhoods.apply(null, arguments)
+          }
         }
-      }
-    },
-    [
-      _c("a", { staticClass: "add", on: { click: _vm.addNeighbourhood } }, [
-        _vm._v("+ Add Neighbourhood")
-      ]),
-      _vm._v(" "),
-      _vm._l(_vm.neighbourhoods, function(neighbourhood, index) {
-        return _c("div", { key: neighbourhood.id }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: neighbourhood.name,
-                expression: "neighbourhood.name"
-              }
-            ],
-            ref: neighbourhood.name,
-            refInFor: true,
-            attrs: { type: "text" },
-            domProps: { value: neighbourhood.name },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(neighbourhood, "name", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _vm.name_errors
-            ? _c("div", [_vm._v(_vm._s(_vm.name_errors))])
-            : _vm._e(),
-          _vm._v(" "),
-          _c("input", {
-            ref: neighbourhood.subtitle,
-            refInFor: true,
-            attrs: { type: "text" },
-            domProps: { value: neighbourhood.subtitle },
-            on: {
-              input: function($event) {
-                return _vm.update($event, "subtitle", index)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _vm.subtitle_errors
-            ? _c("div", [_vm._v(_vm._s(_vm.subtitle_errors))])
-            : _vm._e(),
-          _vm._v(" "),
-          _c("textarea", {
-            ref: neighbourhood.description,
-            refInFor: true,
-            attrs: { cols: "30", rows: "10" },
-            domProps: { value: neighbourhood.description },
-            on: {
-              input: function($event) {
-                return _vm.update($event, "description", index)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _vm.description_errors
-            ? _c("div", [_vm._v(_vm._s(_vm.description_errors))])
-            : _vm._e(),
-          _vm._v(" "),
-          _c("input", {
-            attrs: { type: "number" },
-            domProps: { value: neighbourhood.display_order },
-            on: {
-              input: function($event) {
-                return _vm.update($event, "display_order", index)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "a",
+      },
+      [
+        _vm._l(_vm.neighbourhoods, function(neighbourhood, index) {
+          return _c(
+            "div",
             {
-              staticClass: "remove",
-              on: {
-                click: function($event) {
-                  return _vm.removeNeighbourhood(index)
-                }
-              }
+              key: neighbourhood.id,
+              staticClass: "d-flex flex-column col col-med-3"
             },
-            [_vm._v("delete")]
-          ),
-          _vm._v(" "),
-          _c("div", [
-            neighbourhood.image
-              ? _c("img", {
-                  attrs: { src: "/images/" + neighbourhood.image, width: "100" }
-                })
-              : _c("label", [_vm._v("Image: ")]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "text" },
-              domProps: { value: neighbourhood.image },
-              on: {
-                change: function($event) {
-                  return _vm.update($event, "image", index)
-                }
-              }
-            }),
-            _vm._v(" "),
-            _vm.image_errors
-              ? _c("div", [_vm._v(_vm._s(_vm.image_errors))])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _c("hr")
-        ])
-      }),
-      _vm._v(" "),
-      _c("button", { attrs: { type: "submit" } }, [_vm._v("Save")]),
-      _vm._v(" "),
-      _vm.feedback ? _c("div", [_vm._v(_vm._s(_vm.feedback))]) : _vm._e()
-    ],
-    2
-  )
+            [
+              _c("div", { staticClass: "form-field mb-2" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: neighbourhood.name,
+                      expression: "neighbourhood.name"
+                    }
+                  ],
+                  ref: neighbourhood.name,
+                  refInFor: true,
+                  attrs: { type: "text", placeholder: "Neighbourhood Name" },
+                  domProps: { value: neighbourhood.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(neighbourhood, "name", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.name_errors
+                  ? _c("div", { staticClass: "text-danger" }, [
+                      _vm._v(_vm._s(_vm.name_errors))
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-field mb-2" }, [
+                _c("input", {
+                  ref: neighbourhood.subtitle,
+                  refInFor: true,
+                  attrs: { type: "text", placeholder: "City Location" },
+                  domProps: { value: neighbourhood.subtitle },
+                  on: {
+                    input: function($event) {
+                      return _vm.update($event, "subtitle", index)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.subtitle_errors
+                  ? _c("div", { staticClass: "text-danger" }, [
+                      _vm._v(_vm._s(_vm.subtitle_errors))
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-field mb-2" }, [
+                _c("textarea", {
+                  ref: neighbourhood.description,
+                  refInFor: true,
+                  attrs: {
+                    placeholder: "Neighbourhood Description",
+                    cols: "30",
+                    rows: "10"
+                  },
+                  domProps: { value: neighbourhood.description },
+                  on: {
+                    input: function($event) {
+                      return _vm.update($event, "description", index)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.description_errors
+                  ? _c("div", { staticClass: "text-danger" }, [
+                      _vm._v(_vm._s(_vm.description_errors))
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-field mb-2" }, [
+                _c("input", {
+                  attrs: { type: "number", placeholder: "Order Number" },
+                  domProps: { value: neighbourhood.display_order },
+                  on: {
+                    input: function($event) {
+                      return _vm.update($event, "display_order", index)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-danger text-white remove",
+                    on: {
+                      click: function($event) {
+                        return _vm.removeNeighbourhood(index)
+                      }
+                    }
+                  },
+                  [_vm._v("delete")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-field mb-2" }, [
+                neighbourhood.image
+                  ? _c("img", {
+                      staticClass: "w-100 d-block mb-2",
+                      attrs: { src: "/images/" + neighbourhood.image }
+                    })
+                  : _c("label", [_vm._v("Image: ")]),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "text",
+                    placeholder: "Neighbourhood Image Name"
+                  },
+                  domProps: { value: neighbourhood.image },
+                  on: {
+                    change: function($event) {
+                      return _vm.update($event, "image", index)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.image_errors
+                  ? _c("div", { staticClass: "text-danger" }, [
+                      _vm._v(_vm._s(_vm.image_errors))
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("hr")
+            ]
+          )
+        }),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _vm.feedback
+          ? _c("div", { staticClass: "text-white" }, [
+              _vm._v(_vm._s(_vm.feedback))
+            ])
+          : _vm._e()
+      ],
+      2
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "save-container col col-12" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-success text-dark", attrs: { type: "submit" } },
+        [_vm._v("Save")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 

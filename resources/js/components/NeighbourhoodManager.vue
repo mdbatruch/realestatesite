@@ -1,27 +1,41 @@
 <template>
-    <form @submit.prevent="saveNeighbourhoods" novalidate>
-        <a @click="addNeighbourhood" class="add">+ Add Neighbourhood</a>
-        <div v-for="(neighbourhood, index) in neighbourhoods" :key="neighbourhood.id">
-            <input type="text" v-model="neighbourhood.name" :ref="neighbourhood.name">
-            <div v-if="name_errors">{{ name_errors }}</div>
-            <input type="text" :value="neighbourhood.subtitle" @input="update($event, 'subtitle', index)" :ref="neighbourhood.subtitle">
-            <div v-if="subtitle_errors">{{ subtitle_errors }}</div>
-            <textarea  :value="neighbourhood.description" @input="update($event, 'description', index)" :ref="neighbourhood.description" cols="30" rows="10"></textarea>
-            <div v-if="description_errors">{{ description_errors }}</div>
-            <input type="number" :value="neighbourhood.display_order" @input="update($event, 'display_order', index)">
-            <a @click="removeNeighbourhood(index)" class="remove">delete</a>
-            <div>
-                <img v-if="neighbourhood.image" :src="`/images/${neighbourhood.image}`" width="100">
-                <label v-else>Image: </label>
-                <!-- <input type="text" v-model.lazy="neighbourhood.image"> -->
-                <input type="text" :value="neighbourhood.image" @change="update($event, 'image', index)">
-                <div v-if="image_errors">{{ image_errors }}</div>
-            </div>
-            <hr>
+    <div class="col-12">
+        <div class="neighbourhood-add my-4">
+            <a @click="addNeighbourhood" class="add btn btn-info text-dark">+ Add Neighbourhood</a>
         </div>
-        <button type="submit">Save</button>
-        <div v-if="feedback">{{ feedback }}</div>
-    </form>
+        <form @submit.prevent="saveNeighbourhoods" novalidate class="row py-2">
+            <div v-for="(neighbourhood, index) in neighbourhoods" :key="neighbourhood.id" class="d-flex flex-column col col-med-3">
+                <div class="form-field mb-2">
+                    <input type="text" placeholder="Neighbourhood Name" v-model="neighbourhood.name" :ref="neighbourhood.name">
+                    <div v-if="name_errors" class="text-danger">{{ name_errors }}</div>
+                </div>
+                <div class="form-field mb-2">
+                    <input type="text" placeholder="City Location" :value="neighbourhood.subtitle" @input="update($event, 'subtitle', index)" :ref="neighbourhood.subtitle">
+                    <div v-if="subtitle_errors" class="text-danger">{{ subtitle_errors }}</div>
+                </div>
+                <div class="form-field mb-2">
+                    <textarea :value="neighbourhood.description" placeholder="Neighbourhood Description" @input="update($event, 'description', index)" :ref="neighbourhood.description" cols="30" rows="10"></textarea>
+                    <div v-if="description_errors" class="text-danger">{{ description_errors }}</div>
+                </div>
+                <div class="form-field mb-2">
+                    <input type="number" placeholder="Order Number" :value="neighbourhood.display_order" @input="update($event, 'display_order', index)">
+                    <a @click="removeNeighbourhood(index)" class="btn btn-danger text-white remove">delete</a>
+                </div>
+                <div class="form-field mb-2">
+                    <img v-if="neighbourhood.image" :src="`/images/${neighbourhood.image}`" class="w-100 d-block mb-2">
+                    <label v-else>Image: </label>
+                    <!-- <input type="text" v-model.lazy="neighbourhood.image"> -->
+                    <input type="text" placeholder="Neighbourhood Image Name" :value="neighbourhood.image" @change="update($event, 'image', index)">
+                    <div v-if="image_errors" class="text-danger">{{ image_errors }}</div>
+                </div>
+                <hr>
+            </div>
+            <div class="save-container col col-12">
+                <button type="submit" class="btn btn-success text-dark">Save</button>
+            </div>
+            <div v-if="feedback" class="text-white">{{ feedback }}</div>
+        </form>
+    </div>
 </template>
 
 <script>

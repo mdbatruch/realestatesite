@@ -9,5 +9,10 @@
 
 
 body {
-    background-color: $blue;
+    background-color: #293744;
+    ul {
+        li {
+            list-style: none;
+        }
+    }
 }

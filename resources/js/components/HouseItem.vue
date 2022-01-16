@@ -1,36 +1,46 @@
 <template>
     <div>
-        <form class="item-form" @submit.prevent="save" novalidate>
-        <div>
-            <input type="text" placeholder="Item name" v-model="item.name" required>
-            <div v-if="errors.name">{{ errors.name }}</div>
-            $<input type="number" min="0" step=".01" v-model="item.price" required>
-            <div v-if="errors.price">{{ errors.price }}</div>
-        </div>
-        <div>
-            <textarea v-model="item.description" placeholder="Item description" required></textarea>
-            <div v-if="errors.description">{{ errors.description }}</div>
-        </div>
-        <div>
-            <select v-model="item.neighbourhood" required>
-                <option value="">Select a Neighbourhood</option>
-                <option v-for="cat in initialNeighbourhoods" :value="cat.id" :key="cat.id">{{cat.name}}</option>
-            </select>
-            <div v-if="errors.neighbourhood">{{ errors.neighbourhood }}</div>
-        </div>
-        <div>
-            <select v-model="item.propertyType" required>
-                <option value="">Select a Property Type</option>
-                <option v-for="type in propertyType" :value="type" :key="type">{{type}}</option>
-            </select>
-            <div v-if="errors.propertyType">{{ errors.propertyType }}</div>
-        </div>
-        <img v-if="id && item.image" :src="`/storage/images/${item.image}`" width="200"/>
-        <drop-zone :options="dropzoneOptions" id="dz" ref="dropzone"></drop-zone>
-        <div v-if="errors.image">{{ errors.image }}</div>
-        <button type="submit">Save</button>
-        <a @click="removeHouse(index)" class="btn btn-danger remove">delete</a>
-    </form>
+        <form class="item-form d-flex flex-column py-2 mt-4" @submit.prevent="save" novalidate>
+            <div class="form-field mb-2">
+                <input type="text" placeholder="Item name" v-model="item.name" required>
+                <div v-if="errors.name" class="text-danger">{{ errors.name }}</div>
+            </div>
+            <div class="form-field mb-2">
+                $<input type="number" min="0" step=".01" v-model="item.price" required>
+                <div v-if="errors.price" class="text-danger">{{ errors.price }}</div>
+            </div>
+            <div class="form-field mb-2">
+                <textarea v-model="item.description" placeholder="Item description" required></textarea>
+                <div v-if="errors.description" class="text-danger">{{ errors.description }}</div>
+            </div>
+            <div class="form-field mb-2">
+                <select v-model="item.neighbourhood" required>
+                    <option value="">Select a Neighbourhood</option>
+                    <option v-for="cat in initialNeighbourhoods" :value="cat.id" :key="cat.id">{{cat.name}}</option>
+                </select>
+                <div v-if="errors.neighbourhood" class="text-danger">{{ errors.neighbourhood }}</div>
+            </div>
+            <div class="form-field mb-2">
+                <select v-model="item.propertyType" required>
+                    <option value="">Select a Property Type</option>
+                    <option v-for="type in propertyType" :value="type" :key="type">{{type}}</option>
+                </select>
+                <div v-if="errors.propertyType" class="text-danger">{{ errors.propertyType }}</div>
+            </div>
+            <div class="form-filed mb-2">
+                <img v-if="id && item.image" :src="`/storage/images/${item.image}`" width="200" class="mb-2" />
+                <drop-zone :options="dropzoneOptions" id="dz" ref="dropzone"></drop-zone>
+                <div v-if="errors.image" class="text-danger">{{ errors.image }}</div>
+            </div>
+            <div class="form-field d-flex">
+                <div class="inner-form-field mb-2 mr-2">
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+                <div class="inner-form-field mb-2">
+                    <a @click="removeHouse(index)" class="btn btn-danger remove">Delete</a>
+                </div>
+            </div>
+        </form>
     </div>
 </template>
 
