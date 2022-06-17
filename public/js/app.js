@@ -49965,7 +49965,9 @@ var render = function() {
                       staticClass: "w-100 d-block mb-2",
                       attrs: { src: "/images/" + neighbourhood.image }
                     })
-                  : _c("label", [_vm._v("Image: ")]),
+                  : _c("label", { staticClass: "text-white" }, [
+                      _vm._v("Image: ")
+                    ]),
                 _vm._v(" "),
                 _c("input", {
                   attrs: {

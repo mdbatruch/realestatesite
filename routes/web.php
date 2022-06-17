@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\FrontController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome', $neighbourhoods);
-// });
-
 Auth::routes(['verify' => true]);
 
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
@@ -24,7 +22,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::get('/neighbourhoods', 'App\Http\Controllers\NeighbourhoodController@index');
 
-Route::get('/neighbourhood-editor/{any?}', 'App\Http\Controllers\AdminController@neighbourhood')
-->middleware('can:edit-neighbourhood')
-->where('any', '.*')
-->name('neighbourhood-editor');
+Route::get('/neighbourhood-editor/{any?}', 'App\Http\Controllers\AdminController@neighbourhood')->name('neighbourhood-editor');
+Route::get('about-us', [FrontController::class, 'aboutUs'])->name('about');
+
+Route::get('neighbourhoods', [FrontController::class, 'neighbourhoods'])->name('neighbourhoods');

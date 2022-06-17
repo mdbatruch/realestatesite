@@ -28,8 +28,12 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
+                    <ul class="navbar-nav ml-auto">
+                        @foreach ($navbars as $navbarItem)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route($navbarItem->route) }}">{{ $navbarItem->name }}</a>
+                            </li>
+                        @endforeach
                     </ul>
 
                     <!-- Right Side Of Navbar -->

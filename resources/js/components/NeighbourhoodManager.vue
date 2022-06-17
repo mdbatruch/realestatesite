@@ -23,7 +23,7 @@
                 </div>
                 <div class="form-field mb-2">
                     <img v-if="neighbourhood.image" :src="`/images/${neighbourhood.image}`" class="w-100 d-block mb-2">
-                    <label v-else>Image: </label>
+                    <label class="text-white" v-else>Image: </label>
                     <!-- <input type="text" v-model.lazy="neighbourhood.image"> -->
                     <input type="text" placeholder="Neighbourhood Image Name" :value="neighbourhood.image" @change="update($event, 'image', index)">
                     <div v-if="image_errors" class="text-danger">{{ image_errors }}</div>

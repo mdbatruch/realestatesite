@@ -28,7 +28,7 @@ class NeighbourhoodController extends Controller
     // public function upsert(Request $request) {
     public function upsert(NeighbourhoodPost $request) {
 
-        $this->authorize('manage', 'App\Neighbourhood');
+        // $this->authorize('manage', 'App\Neighbourhood');
         $neighbourhoods = $request->post('neighbourhoods');
 
         // echo '<pre>';
