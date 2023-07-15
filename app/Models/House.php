@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class House extends Model
 {
-    // protected $primaryKey = 'houses';
 
     use HasFactory;
 

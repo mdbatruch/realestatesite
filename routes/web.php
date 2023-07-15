@@ -17,7 +17,6 @@ use App\Http\Controllers\FrontController;
 
 Auth::routes(['verify' => true]);
 
-// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/neighbourhoods', 'App\Http\Controllers\NeighbourhoodController@index');

@@ -133,8 +133,6 @@
                             this.errors.image = errors[i];
                         }
                     }
-                    // this.errors = [].concat.apply([], messages);
-                    console.log(this.errors.name);
                 });
             }
         }

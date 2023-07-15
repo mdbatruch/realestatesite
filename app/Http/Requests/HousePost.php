@@ -13,7 +13,6 @@ class HousePost extends FormRequest
      */
     public function authorize()
     {
-        // return $this->user()->can('edit-house');
         return true;
     }
 
@@ -25,14 +24,12 @@ class HousePost extends FormRequest
     public function rules()
     {
         return [
-            // $request->validate([
-                'name' => 'required|max:128',
-                'description' => 'required|max:512',
-                'price' => 'required|numeric|min:0',
-                'neighbourhood' => 'required|numeric',
-                'propertyType' => 'required',
-                'image' => 'required'
-            // ])
+            'name' => 'required|max:128',
+            'description' => 'required|max:512',
+            'price' => 'required|numeric|min:0',
+            'neighbourhood' => 'required|numeric',
+            'propertyType' => 'required',
+            'image' => 'required'
         ];
     }
 }

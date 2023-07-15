@@ -160,8 +160,6 @@
                             this.errors.image = errors[i];
                         }
                     }
-
-                // console.log(this.errors);
                 });
             },
             removeHouse(index) {

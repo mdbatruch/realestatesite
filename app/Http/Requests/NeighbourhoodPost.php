@@ -24,8 +24,6 @@ class NeighbourhoodPost extends FormRequest
     public function rules()
     {
         return [
-            // 'id' => 'required',
-            // 'neighbourhoods' => 'array|min:1',
             'neighbourhoods.*.name' => 'required|max:128',
             'neighbourhoods.*.subtitle' => 'required|max:512',
             'neighbourhoods.*.description' => 'required|min:0',

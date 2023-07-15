@@ -16,15 +16,6 @@ class HouseTableSeeder extends Seeder
      */
     public function run()
     {
-        // $neighbourhoods = DB::select('select * from Neighbourhoods');
-        // $houseIds = [];
-        // foreach ($neighbourhoods as $hood) {
-        //     $houseIds[$hood->name] = $hood->id;
-        // }
-        // $highPark = $houseIds['High Park'];
-        // $greekTown = $houseIds['Greektown'];
-        // $fortYork = $houseIds['Fort York'];
-
         DB::table('houses')->insert([
             
             [

@@ -28,7 +28,6 @@ class HomeController extends Controller
     {
         $neighbourhoods = Neighbourhood::orderBy('display_order')->get();
 
-        // return dd($neighbourhoods);
         return view('home',[
             'neighbourhoods' => $neighbourhoods
         ]);

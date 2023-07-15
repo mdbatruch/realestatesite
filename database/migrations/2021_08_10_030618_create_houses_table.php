@@ -27,10 +27,6 @@ class CreateHousesTable extends Migration
             ->onDelete('cascade');
             $table->timestamps();
         });
-
-        // Schema::table('houses', function(Blueprint $table) {
-        //     $table->string('building_type', 128);
-        // });
     }
 
     /**

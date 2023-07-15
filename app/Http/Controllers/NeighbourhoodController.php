@@ -25,21 +25,9 @@ class NeighbourhoodController extends Controller
         ]);
     }
 
-    // public function upsert(Request $request) {
     public function upsert(NeighbourhoodPost $request) {
 
-        // $this->authorize('manage', 'App\Neighbourhood');
         $neighbourhoods = $request->post('neighbourhoods');
-
-        // echo '<pre>';
-        // print_r($neighbourhoods);
-
-        // $request->validate([
-        //     'name' => 'required|max:128',
-        //     'subtitle' => 'required|max:512',
-        //     'description' => 'required|numeric|min:0',
-        //     'image' => 'required'
-        // ]);
 
         if ($request->validated()) {
             foreach ($neighbourhoods as $hood) {
@@ -47,8 +35,6 @@ class NeighbourhoodController extends Controller
                     Neighbourhood::where('id', $hood['id'])->update($hood);
                 } else {
                     Neighbourhood::create($hood);
-                    // echo 'test';
-                    // Neighbourhood::create($request->validated());
                 }
             }
         }

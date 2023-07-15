@@ -34,8 +34,6 @@ Route::get('/house-items/{house}', function (House $house) {
     return $house;
 });
 
-// Route::get('/house-items/{house}', 'App\Http\Controllers\HouseController@getHouse');
-
 Route::post('/house-items/{house}', 'App\Http\Controllers\HouseController@update');
 
 Route::get('/neighbourhoods/{neighbourhood}/houses', 'App\Http\Controllers\NeighbourhoodController@items');

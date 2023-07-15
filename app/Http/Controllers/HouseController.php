@@ -35,23 +35,7 @@ class HouseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(HousePost $request)
-    // public function store(HousePost $request)
     {
-        // if (!$request->user()->can('edit-house')) {
-        //     return response('Unathorized', 403);
-        // }
-
-        // $request->validate([
-        //     'name' => 'required|max:128',
-        //     'description' => 'required|max:512',
-        //     'price' => 'required|numeric|min:0',
-        //     'neighbourhood' => 'required|numeric',
-        //     'image' => 'required'
-        // ]);
-
-
-
-        // House::create($request->post());
         House::create($request->validated());
     }
 
@@ -97,7 +81,6 @@ class HouseController extends Controller
      */
     public function destroy(House $house)
     {
-        // $this->authorize('delete', $house);
 
         $house->delete();
 
@@ -105,13 +88,12 @@ class HouseController extends Controller
     }
 
     public function getHouse($id) {
-        // logic to get a student record goes here
         if (House::where('id', $id)->exists()) {
             $house = House::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
             return response($house, 200);
           } else {
             return response()->json([
-              "message" => "Student not found"
+              "message" => "House not found"
             ], 404);
           }
       }

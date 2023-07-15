@@ -17,7 +17,6 @@
     import HouseItem from './HouseItem.vue';
     import HouseItemList from './HouseItemList.vue';
     import store from '../store';
-    // Vue.use(VueRouter);
 
     export default  {
         store,

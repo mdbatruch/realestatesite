@@ -1,4 +1,3 @@
-import { LazyResult } from 'postcss';
 import Vue from 'vue';
 import Vuex from 'vuex';
 
@@ -75,13 +74,9 @@ export default new Vuex.Store({
                     commit('SET_IMAGE_ERRORS', this.image_errors);
 
                     let messages = Object.values(error.response.data.errors);
-                    // this.errors = [].concat.apply([], messages);
                     let errors = [].concat.apply([], messages);
 
-                    console.log(errors);
-
                     for (var i = 0; i < errors.length; i++) {
-                        console.log(errors[i]);
 
                         if (errors[i] == 'The name field is required.') {
                             this.name_errors = errors[i];
@@ -103,25 +98,6 @@ export default new Vuex.Store({
                             commit('SET_IMAGE_ERRORS', this.image_errors);
                         }
                     }
-
-                    // if (this.errors[0] == 'The name field is required.') {
-                    //     this.name_errors = this.errors[0];
-                    // }
-                    
-                    // if (this.errors[0] == 'The subtitle field is required.') {
-                    //     this.subtitle_errors = this.errors[0];
-                    // } 
-
-                    // console.log(this.errors);
-
-                    // commit('SET_ERRORS', this.errors);
-                    // commit('SET_NAME_ERRORS', this.name_errors);
-                    // commit('SET_SUBTITLE_ERRORS', this.subtitle_errors);
-
-                    // if (this.errors[0] = 'The name field is required') {
-                    //     let errors_name = this.errors[0];
-                    //     commit('SET_ERRORS_NAME', errors_name);
-                    // }
                 });
 
         },

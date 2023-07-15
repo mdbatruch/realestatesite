@@ -24,7 +24,6 @@
                 <div class="form-field mb-2">
                     <img v-if="neighbourhood.image" :src="`/images/${neighbourhood.image}`" class="w-100 d-block mb-2">
                     <label class="text-white" v-else>Image: </label>
-                    <!-- <input type="text" v-model.lazy="neighbourhood.image"> -->
                     <input type="text" placeholder="Neighbourhood Image Name" :value="neighbourhood.image" @change="update($event, 'image', index)">
                     <div v-if="image_errors" class="text-danger">{{ image_errors }}</div>
                 </div>
@@ -40,7 +39,6 @@
 
 <script>
     export default {
-        // props: ['initial-neighbourhoods'],
         state: {
             neighbourhoods: [],
             items: [],
@@ -77,21 +75,11 @@
         methods: {
             removeNeighbourhood(index) {
                 if (confirm('are you sure')) {
-
                     this.$store.dispatch('removeNeighbourhood', index);
-                // let id = this.neighbourhoods[index].id;
-
-                // if (id > 0) {
-                //     axios.delete('api/neighbourhoods/' + id);
-                // }
-
-                // this.neighbourhoods.splice(index, 1);
-
                 }
             },
 
         addNeighbourhood() {
-                // this.neighbourhoods.push({
                 this.$store.commit('ADD_NEIGHBOURHOOD', {
                     id: 0,
                     name: '',
@@ -106,16 +94,6 @@
         saveNeighbourhoods() {
 
             this.$store.dispatch('saveNeighbourhoods');
-            
-            // axios.post('api/neighbourhoods/upsert', {
-            //     neighbourhoods: this.neighbourhoods
-            // })
-            //     .then((res) => {
-            //         if (res.data.success) {
-            //             this.feedback = 'Saved!';
-            //             this.neighbourhoods = res.data.neighbourhoods;
-            //         }
-            //     });
             },
             update($event, property, index) {
                 this.$store.commit('UPDATE_NEIGHBOURHOOD', {
